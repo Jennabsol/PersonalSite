@@ -207,7 +207,7 @@ NOTE: This is main stylesheet of the template.
  }
 
  .logo a {
-     color: #fff;
+     color: transparent;
      display: inline-block;
      font-size: 32px;
      font-weight: 700;
@@ -972,6 +972,7 @@ NOTE: This is main stylesheet of the template.
 
  .contact-form,
  .author-adress {
+    /* background-image: url("assets/img/patrick-tomasso-216284.jpg"); */
      background-color: #fff;
      box-shadow: 1px 1px 9px rgba(0, 0, 0, 0.1);
      padding: 40px 30px;
@@ -1054,9 +1055,11 @@ NOTE: This is main stylesheet of the template.
 ==================================================*/
 
  .footer {
-     background-color: #222;
+     /* background-color: #222; */
      padding: 20px 0;
+     background-image: url("assets/img/patrick-tomasso-216284.jpg")
  }
+
 
  .footer p {
      font-size: 16px;
