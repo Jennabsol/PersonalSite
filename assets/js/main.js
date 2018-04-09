@@ -11,86 +11,87 @@ NOTE: This is the custom jQuery file for the template
 
 
 (function ($) {
-	"use strict";
+    "use strict";
 
     var $window = $(window),
-            $body = $('body');
+        $body = $('body');
 
-    jQuery(document).ready(function($){
+    jQuery(document).ready(function ($) {
 
-    /*=============================
-                Sticky header
-    ==============================*/
-        $('.navbar-collapse a').on('click',function(){
-          $(".navbar-collapse").collapse('hide');
-        });
-
-        $window.on('scroll', function() {
-          if ($(".navbar").offset().top > 100) {
-            $(".navbar-fixed-top").addClass("top-nav-collapse");
-              } else {
-                $(".navbar-fixed-top").removeClass("top-nav-collapse");
-              }
-        });
-
-
-     /*=============================
-                Smoothscroll js
+        /*=============================
+                    Sticky header
         ==============================*/
-        $(function() {
-          $('a.smoth-scroll').on('click', function(event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top - 0
-            }, 1000);
-            event.preventDefault();
-          });
+        $('.navbar-collapse a').on('click', function () {
+            $(".navbar-collapse").collapse('hide');
+        });
+
+        $window.on('scroll', function () {
+            if ($(".navbar").offset().top > 100) {
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+            } else {
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            }
         });
 
 
-    /*======================================
-        jquery scroll spy
-    ========================================*/
+        /*=============================
+                   Smoothscroll js
+           ==============================*/
+        $(function () {
+            $('a.smoth-scroll').on('click', function (event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top - 0
+                }, 1000);
+                event.preventDefault();
+            });
+        });
+
+
+        /*======================================
+            jquery scroll spy
+        ========================================*/
         $body.scrollspy({
 
-            target : ".navbar-collapse",
-            offset : 95
+            target: ".navbar-collapse",
+            offset: 95
 
         });
 
 
-     /*=================================
-            Bootstrap menu fix
-     ==================================*/
-        $(".navbar-toggle").on("click", function(){
+        /*=================================
+               Bootstrap menu fix
+        ==================================*/
+        $(".navbar-toggle").on("click", function () {
 
             $body.addClass("mobile-menu-activated");
 
         });
 
-        $("ul.nav.navbar-nav li a").on("click", function(){
+        $("ul.nav.navbar-nav li a").on("click", function () {
 
             $(".navbar-collapse").removeClass("in");
 
         });
 
 
-    /*====================================================
-        background-image flickering solution for mobile
-        =======================================================*/
-         var bg = jQuery("#home");
+        /*====================================================
+            background-image flickering solution for mobile
+            =======================================================*/
+        var bg = jQuery("#home");
+
         function resizeBackground() {
             bg.height(jQuery(window).height() + 60);
-      }
-      resizeBackground();
+        }
+        resizeBackground();
 
 
-    /*==========================
-        Intro typer
-    ============================*/
-    var element = $(".element");
+        /*==========================
+            Intro typer
+        ============================*/
+        var element = $(".element");
 
-        $(function() {
+        $(function () {
             element.typed({
                 strings: ["Full Stack Software Developer"],
                 typeSpeed: 100,
@@ -99,81 +100,86 @@ NOTE: This is the custom jQuery file for the template
         });
 
 
-     /*=============================
+        /*=============================
             Parallax
     ==============================*/
-    $window.stellar({
-        responsive: true,
-        positionProperty: 'position',
-        horizontalScrolling: false
-    });
+        $window.stellar({
+            responsive: true,
+            positionProperty: 'position',
+            horizontalScrolling: false
+        });
 
 
-    /*=============================
-        Magnific Popup
-    ==============================*/
-    $('.work-popup').magnificPopup({type:'image'});
+        /*=============================
+            Magnific Popup
+        ==============================*/
+        $('.work-popup').magnificPopup({
+            type: 'image'
+        });
 
-    /*=============================
-        CounterUp
-    ==============================*/
-    $('.counter').counterUp({
-        delay: 4,
-         time: 800
-    });
+        /*=============================
+            CounterUp
+        ==============================*/
+        $('.counter').counterUp({
+            delay: 4,
+            time: 800
+        });
 
-    /*=============================
-            WOW js
-    ==============================*/
-        new WOW({ mobile: false }).init();
-
-
-    /*=========================================
-                jQuery mixItUp
-    =======================================*/
-
-    $('.work-inner').mixItUp();
+        /*=============================
+                WOW js
+        ==============================*/
+        new WOW({
+            mobile: false
+        }).init();
 
 
-    /*===================================
-            owl carousel testimonial
-     ====================================*/
-    $(".testimonial-list").owlCarousel({
-        loop:true,
-        margin:30,
-        nav:false,
-        dots:true,
-        autoplay:true,
-        autoplayHoverPause:true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:2
-            },
-            1000:{
-                items:3
+        /*=========================================
+                    jQuery mixItUp
+        =======================================*/
+
+        $('.work-inner').mixItUp();
+
+
+        /*===================================
+                owl carousel testimonial
+         ====================================*/
+        $(".testimonial-list").owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
             }
-        }
-    });
+        });
 
 
     });
 
 
-    $window.on('load', function(){
-          /*=============================
+    $window.on('load', function () {
+        /*=============================
                 Preloder
         ==============================*/
-         $('.spinner').fadeOut();
+        $('.spinner').fadeOut();
         $('.preloader').delay(350).fadeOut(500);
-        $body.delay(350).css({'overflow':'visible'});
-
+        $body.delay(350).css({
+            'overflow': 'visible'
         });
+
+    });
 
 
 
 
 }(jQuery));
-
